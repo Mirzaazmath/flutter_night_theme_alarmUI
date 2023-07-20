@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nighttheme_alarm_ui/screens/setalarm_screen.dart';
 
 import '../components/alarm_chip.dart';
 import '../utils/text_utils.dart';
@@ -46,15 +47,27 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     children: [
-                      TextWhite(text: "Alarm",),
+                     const  Spacer(),
+                      Row(
+                        children: [
+                         Expanded(child:  Center(child: TextWhite(text: "Alarm",)),),
+                          InkWell(
+                            onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SetAlarmScreen()));
+                            },
+                              child: const Icon(Icons.add,color: Colors.white,))
+                        ],
+                      ),
+                      const  Spacer(),
                       Center(
                         child: AspectRatio(
                           aspectRatio: 1.7,
                             child: Image.asset("assets/moon.png")),
                       ),
+                      const  Spacer(),
 
                       ColoredText(text: "Sleep time"),
-                     const  SizedBox(height: 10,),
+                      const  Spacer(),
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                        crossAxisAlignment: CrossAxisAlignment.end,
@@ -79,8 +92,9 @@ class HomeScreen extends StatelessWidget {
 
                        ],
                      ),
+                      const  Spacer(),
                      const  Divider(color: Color(0xff8c599e),thickness: 2,),
-                    const   SizedBox(height: 10,),
+                      const  Spacer(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -108,7 +122,8 @@ class HomeScreen extends StatelessWidget {
                           )
 
                         ],
-                      )
+                      ),
+                      const  Spacer(),
 
                     ],
                   ),

@@ -27,10 +27,11 @@ class ColoredText extends StatelessWidget {
   final String text;
   final double? size;
   final bool? isbold;
-   ColoredText({super.key,this.size,required this.text,this.isbold});
+  final Color?color;
+   ColoredText({super.key,this.size,required this.text,this.isbold,this.color});
 
   @override
   Widget build(BuildContext context) {
-    return   Text(text,style: TextStyle(color:const  Color(0xff8c599e),fontWeight:isbold==null? FontWeight.bold:FontWeight.normal, fontSize:size?? 17),maxLines: 2,);
+    return   Text(text,style: TextStyle(color:color??const  Color(0xff8c599e),fontWeight:isbold==null? FontWeight.bold:FontWeight.normal, fontSize:size?? 17),maxLines: 2,);
   }
 }
